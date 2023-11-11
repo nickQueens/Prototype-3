@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dirtParticle;
     public AudioClip jumpSound;
     public AudioClip crashSound;
+    public float gravityY = -9.81f;
     private bool isOnGround = true;
     public bool gameOver = false;
     private Animator playerAnim;
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
-        Physics.gravity *= gravityModifier;
+        Physics.gravity = new Vector3(0, gravityY * 1.5f, 0);
     }
 
     // Update is called once per frame
